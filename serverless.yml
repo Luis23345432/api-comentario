@@ -1,4 +1,4 @@
-org: zamcloud
+org: lopezluis17
 service: api-comentario
 
 provider:
@@ -8,10 +8,10 @@ provider:
     memorySize: 1024
     timeout: 30
     iam:
-        role: arn:aws:iam::418515024637:role/LabRole
+        role: arn:aws:iam::418974378390:role/LabRole
     environment:
         TABLE_NAME: ${sls:stage}-t_comentarios
-        INGEST_BUCKET_NAME: ${self:service}-${sls:stage}-ingest-bucket-zamir
+        INGEST_BUCKET_NAME: ${self:service}-${sls:stage}-ingest-bucket-luis
 
 functions:
     crear:
@@ -28,7 +28,7 @@ resources:
         IngestBucket:
             Type: AWS::S3::Bucket
             Properties:
-                BucketName: ${self:service}-${sls:stage}-ingest-bucket-zamir
+                BucketName: ${self:service}-${sls:stage}-ingest-bucket-luis
         TablaComentarios:
             Type: AWS::DynamoDB::Table
             Properties:
